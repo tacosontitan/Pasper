@@ -18,7 +18,6 @@
 		<Description>A lightweight, provider agnostic, serialization proxy designed to simplify serialization definitions.</Description>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
-		<PackageIcon>bonfire.png</PackageIcon>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 		<IncludeSymbols>True</IncludeSymbols>
