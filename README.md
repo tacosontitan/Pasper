@@ -30,3 +30,34 @@ We believe in keeping the community informed, so here's a few more tidbits of in
 ![Stars](https://img.shields.io/github/stars/tacosontitan/Pasper?logo=github&style=for-the-badge)
 ![Size](https://img.shields.io/github/languages/code-size/tacosontitan/Pasper?logo=github&style=for-the-badge)
 ![Line Count](https://img.shields.io/tokei/lines/github/tacosontitan/Pasper?logo=github&style=for-the-badge)
+
+## 🛣️ Roadmap
+
+The following is a list of features that are planned for the future:
+
+- [ ] Create a common interface for ignoring members.
+- [ ] Create a common interface for serializing members.
+- [ ] Add support for XML.
+- [ ] Add support for JSON.
+- [ ] Add support for YAML.
+
+Each format Pasper provides support for will be contained in its own assembly to allow consumers to only include the formats they need. The naming convention for these assemblies will be `Pasper.{Format}.{Provider}`, for example:
+
+- `Pasper.Json.Newtonsoft`
+- `Pasper.Yaml.YamlDotNet`
+
+The provider name for `System` namespaces is currently up for debate:
+
+- `Pasper.Json.System` or `Pasper.Json.Microsoft`
+- `Pasper.Xml.System` or `Pasper.Xml.Microsoft`
+
+This will allow consumers to easily identify not only the format they're after, but the provider they want to use as well.
+
+### ✨ Potential Features
+
+The following is a list of features that are being considered for the future:
+
+- [ ] Add support for TOML.
+- [ ] Add support for CBOR.
+- [ ] Add support for INI.
+- [ ] Add support for HOCON.
