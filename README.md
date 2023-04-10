@@ -35,7 +35,7 @@ We believe in keeping the community informed, so here's a few more tidbits of in
 
 The following is a list of features that are planned for the future:
 
-- [ ] Create a common attribute for ignoring members.
+- [x] Create a common attribute for ignoring members.
 - [ ] Create a common attribute for serializing members.
 - [ ] Create a way to transform member names based on the format.
 - [ ] Add support for JSON.
