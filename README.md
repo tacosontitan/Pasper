@@ -35,11 +35,12 @@ We believe in keeping the community informed, so here's a few more tidbits of in
 
 The following is a list of features that are planned for the future:
 
-- [ ] Create a common interface for ignoring members.
-- [ ] Create a common interface for serializing members.
-- [ ] Add support for XML.
+- [ ] Create a common attribute for ignoring members.
+- [ ] Create a common attribute for serializing members.
+- [ ] Create a way to transform member names based on the format.
 - [ ] Add support for JSON.
 - [ ] Add support for YAML.
+- [ ] Add support for XML.
 
 Each format Pasper provides support for will be contained in its own assembly to allow consumers to only include the formats they need. The naming convention for these assemblies will be `Pasper.{Format}.{Provider}`, for example:
 
