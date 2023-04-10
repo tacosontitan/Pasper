@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "DavidAnson.vscode-markdownlint",
+        "EditorConfig.EditorConfig",
+        "ms-dotnettools.csharp",
+        "kreativ-software.csharpextensions",
+        "ms-azuretools.vscode-docker",
+        "streetsidesoftware.code-spell-checker"
+    ]
+}
