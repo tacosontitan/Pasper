@@ -4,7 +4,7 @@ Pasper is a proxy for serialization services that allows consumers to simplify t
 
 ![License](https://img.shields.io/github/license/tacosontitan/Pasper?logo=github&style=for-the-badge)
 
-The name is the combination of the acronym PASP (Provider Agnostic Serialization Proxy) and provider to create a unique name that is easy to remember.
+The name is a combination of the acronym PASP (Provider Agnostic Serialization Proxy) and provider to create a unique name that is easy to remember.
 
 ## 💁‍♀️ Getting Started
 
