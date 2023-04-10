@@ -53,6 +53,48 @@ The provider name for `System` namespaces is currently up for debate:
 
 This will allow consumers to easily identify not only the format they're after, but the provider they want to use as well.
 
+### 🆘 What problem does Pasper aim to solve
+
+Most serialization providers define their own attributes for defining how members should be serialized or ignored. This can lead to a lot of clutter in your codebase, especially if you're using multiple providers:
+
+```csharp
+[XmlElement("Id")]
+[JsonProperty("id")]
+[YamlMember(Alias = "id")]
+public int Id { get; set; }
+```
+
+Each provider does it a little bit differently, and each provider has its own set of attributes. This can lead to a lot of code duplication, and a lot of confusion when you're trying to figure out how to serialize a type. The idea behind Pasper is to simplify this:
+
+```csharp
+[SerializedMember("id")]
+public int Id { get; set; }
+```
+
+This is a lot cleaner, and a lot easier to understand. It also allows you to easily switch providers without having to change your codebase. This is especially useful if you're using multiple providers, and you want to switch from one to another.
+
+### 🏆 What is the biggest obstacle currently
+
+XML supports many different attributes such as `XmlElement` and `XmlAttribute`. This will need to be taken into consideration while designing the common interface as most other formats aren't as flexible. This is likely to be the most challenging aspect of this project, and will require a lot of thought and consideration.
+
+### 🤔 Something else to think about
+
+Currently, consumers have complete control over how their types are serialized with each specific provider. This means that Pasper will have to provide a way to support this level of control, while still providing a simplified way to serialize types. One way we might approach this is by preferring the provider defined attribute over the Pasper defined attribute. This would allow consumers to use the provider defined attribute to override the Pasper defined attribute, while still providing a simplified way to serialize types. This is likely the most concise way to provide this level of control, but it's not likely to be the only way, so we're open for ideas.
+
+Imagine the following scenario:
+
+```csharp
+[XmlElement("ID")]
+[SerializedMember("id")]
+public int Id { get; set; }
+```
+
+In this use-case, the consumer is using the `XmlElement` attribute to define how the `Id` property should be serialized. Pasper should respect this, and use the `XmlElement` attribute to serialize the property, rather than the `SerializedMember` attribute. However, for all other providers, Pasper should use the `SerializedMember` attribute to serialize the property.
+
+#### 🔤 How should we handle casing
+
+Ideally, we just take the input and use that as the desired output, regardless of format. However, we should consider transformation of the output based on the format. This can easily be achieved by using an interface, `Func<string, string>` or many other methods that provide the consumer with the ability to transform the output.
+
 ### ✨ Potential Features
 
 The following is a list of features that are being considered for the future:
