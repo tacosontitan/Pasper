@@ -22,7 +22,7 @@ namespace Pasper;
 /// Indicates that the marked member should be ignored during serialization.
 /// </summary>
 [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
-public class IgnoreAttribute : Attribute, IIgnored
+public class IgnoreAttribute : Attribute, IIgnoreAttribute
 {
 
 }
