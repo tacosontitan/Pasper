@@ -5,7 +5,7 @@ namespace Pasper;
 /// <summary>
 /// Defines a simplified common attribute for defining how members should be serialized.
 /// </summary>
-[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
+[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
 public class SerializedAttribute : Attribute, ISerializedAttribute
 {
     /// <summary>
