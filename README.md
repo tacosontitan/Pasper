@@ -31,6 +31,23 @@ We believe in keeping the community informed, so here's a few more tidbits of in
 ![Size](https://img.shields.io/github/languages/code-size/tacosontitan/Pasper?logo=github&style=for-the-badge)
 ![Line Count](https://img.shields.io/tokei/lines/github/tacosontitan/Pasper?logo=github&style=for-the-badge)
 
+## 🔥 Simplified Serialization
+
+We recently added an extension method in the namespace `Pasper.Extensibility` that allows you to serialize an object in your codebase in a standardized way:
+
+```csharp
+var person = new Person
+{
+    Id = 1,
+    FirstName = "John",
+    LastName = "Doe"
+};
+
+string json = person.Serialize<JsonProvider>();
+```
+
+Our next step is to add dependency injection support for your custom providers in this extension method, but for now a parameterless constructor is required.
+
 ## 🛣️ Roadmap
 
 The following is a list of features that are planned for the future:
