@@ -3,6 +3,7 @@
         "CBOR",
         "HOCON",
         "Newtonsoft",
+        "parameterless",
         "PASP",
         "Pasper",
         "Roadmap",
