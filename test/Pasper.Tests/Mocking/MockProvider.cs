@@ -1,4 +1,5 @@
 using System.Text;
+using Pasper.Reflection;
 
 namespace Pasper.Tests.Mocking;
 
@@ -10,8 +11,7 @@ internal sealed class MockProvider : ISerializationProvider
         var sb = new StringBuilder();
         foreach (var property in properties)
         {
-            var attributes = property.GetCustomAttributes(false);
-            if (attributes.Any(a => typeof(IIgnoreAttribute).IsAssignableFrom(a.GetType())))
+            if (property.IsIgnored())
                 continue;
 
             string key = attributes
