@@ -22,4 +22,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Pasper\Pasper.csproj" />
+  </ItemGroup>
+
 </Project>
