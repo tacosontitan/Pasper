@@ -3,7 +3,7 @@ namespace Pasper;
 /// <summary>
 /// Defines how members are serialized.
 /// </summary>
-public interface ISerializedAsAttribute
+public interface ISerializedAttribute
 {
     /// <summary>
     /// The name of the member when serialized.
