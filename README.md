@@ -58,6 +58,9 @@ The following is a list of features that are planned for the future:
 - [ ] Add support for JSON.
 - [ ] Add support for YAML.
 - [ ] Add support for XML.
+  - [ ] Add support for XML elements.
+  - [ ] Add support for XML attributes.
+  - [ ] Add support for XML arrays.
 
 Each format Pasper provides support for will be contained in its own assembly to allow consumers to only include the formats they need. The naming convention for these assemblies will be `Pasper.{Format}.{Provider}`, for example:
 
