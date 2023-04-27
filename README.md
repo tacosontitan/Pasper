@@ -53,7 +53,7 @@ Our next step is to add dependency injection support for your custom providers i
 The following is a list of features that are planned for the future:
 
 - [x] Create a common attribute for ignoring members.
-- [ ] Create a common attribute for serializing members.
+- [x] Create a common attribute for serializing members.
 - [ ] Create a way to transform member names based on the format.
 - [ ] Add support for JSON.
 - [ ] Add support for YAML.
@@ -85,7 +85,7 @@ public int Id { get; set; }
 Each provider does it a little bit differently, and each provider has its own set of attributes. This can lead to a lot of code duplication, and a lot of confusion when you're trying to figure out how to serialize a type. The idea behind Pasper is to simplify this:
 
 ```csharp
-[SerializedMember("id")]
+[Serialized("id")]
 public int Id { get; set; }
 ```
 
