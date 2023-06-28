@@ -9,5 +9,6 @@
         "Pasper",
         "Roadmap",
         "tacosontitan"
-    ]
+    ],
+    "dotnet.defaultSolution": "Pasper.sln"
 }
