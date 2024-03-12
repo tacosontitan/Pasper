@@ -40,7 +40,7 @@ public static class IgnoreExtensions
 
     private static bool ImplementsIgnoredInterface(object attribute)
     {
-        Type attributeType = attribute.GetType();
+        var attributeType = attribute.GetType();
         return typeof(IIgnoreAttribute).IsAssignableFrom(attributeType);
     }
 }
