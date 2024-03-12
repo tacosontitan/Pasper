@@ -23,7 +23,7 @@ namespace Pasper.Reflection;
 /// </summary>
 /// <remarks>
 ///     This attribute is preferred when <see cref="ObfuscationAttribute"/> is detected and the
-///     type is not excluded from obfuscation using <see cref="ObfuscationAttribute.Exclude"/>.
+///     type or member is not excluded using <see cref="ObfuscationAttribute.Exclude"/>.
 /// </remarks>
 [AttributeUsage(
     validOn: AttributeTargets.Class
