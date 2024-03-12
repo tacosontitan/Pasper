@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7366F508-1DD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pasper", "src\Pasper\Pasper.csproj", "{A9A9AA00-D2C9-4D38-BD71-363CE2962773}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pasper.Xml", "src\Pasper.Xml\Pasper.Xml.csproj", "{3E88B4A8-0D5B-41C6-AFD8-85124787C2ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{371DEE60-97EB-4754-9083-B0928ABE7695}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +21,17 @@ Global
 		{A9A9AA00-D2C9-4D38-BD71-363CE2962773}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9A9AA00-D2C9-4D38-BD71-363CE2962773}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9A9AA00-D2C9-4D38-BD71-363CE2962773}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E88B4A8-0D5B-41C6-AFD8-85124787C2ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E88B4A8-0D5B-41C6-AFD8-85124787C2ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E88B4A8-0D5B-41C6-AFD8-85124787C2ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E88B4A8-0D5B-41C6-AFD8-85124787C2ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A9A9AA00-D2C9-4D38-BD71-363CE2962773} = {7366F508-1DDD-46DB-82C0-978C5F0D1F92}
+		{3E88B4A8-0D5B-41C6-AFD8-85124787C2ED} = {7366F508-1DDD-46DB-82C0-978C5F0D1F92}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {98BD2AB3-7CF7-4E57-A9C7-B8E50657904F}
