@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pasper.Xml", "src\Pasper.Xm
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{371DEE60-97EB-4754-9083-B0928ABE7695}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pasper.Xml.Tests", "test\Pasper.Xml.Tests\Pasper.Xml.Tests.csproj", "{8C772AD3-4D51-4AA7-B8E6-5B65C9C29A97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{3E88B4A8-0D5B-41C6-AFD8-85124787C2ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E88B4A8-0D5B-41C6-AFD8-85124787C2ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E88B4A8-0D5B-41C6-AFD8-85124787C2ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C772AD3-4D51-4AA7-B8E6-5B65C9C29A97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C772AD3-4D51-4AA7-B8E6-5B65C9C29A97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C772AD3-4D51-4AA7-B8E6-5B65C9C29A97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C772AD3-4D51-4AA7-B8E6-5B65C9C29A97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A9A9AA00-D2C9-4D38-BD71-363CE2962773} = {7366F508-1DDD-46DB-82C0-978C5F0D1F92}
 		{3E88B4A8-0D5B-41C6-AFD8-85124787C2ED} = {7366F508-1DDD-46DB-82C0-978C5F0D1F92}
+		{8C772AD3-4D51-4AA7-B8E6-5B65C9C29A97} = {371DEE60-97EB-4754-9083-B0928ABE7695}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {98BD2AB3-7CF7-4E57-A9C7-B8E50657904F}
