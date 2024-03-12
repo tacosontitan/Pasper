@@ -30,7 +30,7 @@ public static class SerializationExtensions
     /// <typeparam name="TProvider">The type of the serialization provider.</typeparam>
     /// <param name="target">The target object.</param>
     /// <returns>The serialized object.</returns>
-    public static string Serialize<TData, TProvider>(this TData target) where
+    public static string? Serialize<TData, TProvider>(this TData target) where
         TProvider : ISerializationProvider, new()
     {
         ISerializationProvider provider = Activator.CreateInstance<TProvider>();

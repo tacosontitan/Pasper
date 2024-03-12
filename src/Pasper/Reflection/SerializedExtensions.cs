@@ -23,11 +23,11 @@ public static class SerializedExtensions
 
         name = string.Empty;
         IEnumerable<object> attributes = source.GetCustomAttributes();
-        object boxedSerializedAttribute = attributes?.SingleOrDefault(ImplementsSerializedInterface);
+        object? boxedSerializedAttribute = attributes?.SingleOrDefault(ImplementsSerializedInterface);
         if (boxedSerializedAttribute is null)
             return false;
 
-        ISerializedAttribute serializedAttribute = (ISerializedAttribute)boxedSerializedAttribute;
+        var serializedAttribute = (ISerializedAttribute)boxedSerializedAttribute;
         name = string.IsNullOrWhiteSpace(serializedAttribute.Name)
             ? source.Name
             : serializedAttribute.Name;
@@ -48,11 +48,11 @@ public static class SerializedExtensions
 
         name = string.Empty;
         IEnumerable<object> attributes = source.GetCustomAttributes();
-        object boxedSerializedAttribute = attributes?.SingleOrDefault(ImplementsSerializedInterface);
+        object? boxedSerializedAttribute = attributes?.SingleOrDefault(ImplementsSerializedInterface);
         if (boxedSerializedAttribute is null)
             return false;
 
-        ISerializedAttribute serializedAttribute = (ISerializedAttribute)boxedSerializedAttribute;
+        var serializedAttribute = (ISerializedAttribute)boxedSerializedAttribute;
         name = string.IsNullOrWhiteSpace(serializedAttribute.Name)
             ? source.Name
             : serializedAttribute.Name;
