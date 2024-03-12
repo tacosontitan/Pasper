@@ -47,17 +47,12 @@ The following is a list of features that are planned for the future:
 - [ ] Add support for YAML.
 - [ ] Add support for TOML.
 
-Each format Pasper provides support for will be contained in its own assembly to allow consumers to only include the formats they need. The naming convention for these assemblies will be `Pasper.{Format}.{Provider}`, for example:
+Each format Pasper provides support for will be contained in its own assembly to allow consumers to only include the formats they need. The naming convention for these assemblies will be `Pasper.{Format}`, for example:
 
-- `Pasper.Json.Newtonsoft`
-- `Pasper.Yaml.YamlDotNet`
+- `Pasper.Json`
+- `Pasper.Yaml`
 
-The provider name for `System` namespaces is currently up for debate:
-
-- `Pasper.Json.System` or `Pasper.Json.Microsoft`
-- `Pasper.Xml.System` or `Pasper.Xml.Microsoft`
-
-This will allow consumers to easily identify not only the format they're after, but the provider they want to use as well.
+This will allow consumers to easily identify the format they're after, and only include the assemblies they need.
 
 ### 🆘 What problem does Pasper aim to solve
 
