@@ -19,7 +19,11 @@ namespace Pasper;
 /// <summary>
 /// Defines options for serialization.
 /// </summary>
-public class SerializationOptions
+public sealed class SerializationOptions
 {
-
+    /// <summary>
+    /// Gets or sets a value indicating whether to compress the serialized data.
+    /// </summary>
+    /// <value><see langword="true"/> if the serialized data should be compressed; otherwise, <see langword="false"/>.</value>
+    public bool Compress { get; set; }
 }

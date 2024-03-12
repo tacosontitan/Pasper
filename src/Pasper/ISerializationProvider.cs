@@ -22,17 +22,20 @@
 public interface ISerializationProvider
 {
     /// <summary>
-    /// Serializes the input object.
+    /// Serializes a specified object using the specified format provider.
     /// </summary>
-    /// <typeparam name="T">The type of the input object.</typeparam>
-    /// <param name="input">The input object.</param>
-    /// <returns>The serialized object.</returns>
-    string Serialize<T>(T input);
+    /// <typeparam name="T">Specifies the type of the input object.</typeparam>
+    /// <param name="input">Specifies the object to serialize.</param>
+    /// <param name="formatProvider">Specifies the format provider to use.</param>
+    /// <returns>The result of serializing the specified input.</returns>
+    string? Serialize<T>(T input, IFormatProvider? formatProvider = null);
+    
     /// <summary>
-    /// Deserializes the input string.
+    /// Deserializes a specified input into an object of the specified type using the specified format provider.
     /// </summary>
-    /// <typeparam name="T">The type of the output object.</typeparam>
-    /// <param name="input">The input string.</param>
-    /// <returns>The deserialized object.</returns>
-    T Deserialize<T>(string input);
+    /// <typeparam name="T">Specifies the type of the output object.</typeparam>
+    /// <param name="input">Specifies the input to deserialize.</param>
+    /// <param name="formatProvider">Specifies the format provider to use.</param>
+    /// <returns>The result of deserializing the specified input.</returns>
+    T? Deserialize<T>(string? input, IFormatProvider? formatProvider = null);
 }
