@@ -4,7 +4,7 @@ using Pasper.Reflection;
 namespace Pasper.Tests.Reflection;
 
 /// <summary>
-/// Tests for the <see cref="Pasper.Reflection.TypeExtensions.IsObfuscated"/> method.
+/// Tests for the <see cref="Pasper.Reflection.MemberInfoExtensions.IsObfuscated"/> method.
 /// </summary>
 public sealed class IsObfuscatedTests
 {
