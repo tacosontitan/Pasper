@@ -13,8 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
-using System;
 
 namespace Pasper;
 
@@ -22,7 +20,9 @@ namespace Pasper;
 /// Defines a simplified common attribute for defining how members should be serialized.
 /// </summary>
 [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
-public class SerializedAttribute : Attribute, ISerializedAttribute
+public class SerializedAttribute
+    : Attribute,
+      ISerializedAttribute
 {
     /// <summary>
     /// Creates a new <see cref="SerializedAttribute"/> instance.

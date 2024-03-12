@@ -13,16 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
-using System;
 
 namespace Pasper;
 
 /// <summary>
 /// Indicates that the marked member should be ignored during serialization.
 /// </summary>
-[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
-public class IgnoreAttribute : Attribute, IIgnoreAttribute
-{
-
-}
+[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
+public sealed class IgnoreAttribute
+    : Attribute,
+      IIgnoreAttribute;
