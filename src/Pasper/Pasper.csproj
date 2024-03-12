@@ -1,48 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
-		<Nullable>enable</Nullable>
-		<ImplicitUsings>true</ImplicitUsings>
-		<Title>$(AssemblyName)</Title>
-		<Version>2023.4.10</Version>
-		<PackageVersion>$(AssemblyVersion)</PackageVersion>
-		<Authors>tacosontitan</Authors>
-		<Copyright>Copyright © 2023 tacosontitan and contibutors</Copyright>
-		<PackageProjectUrl>https://github.com/tacosontitan/Pasper</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/tacosontitan/Pasper</RepositoryUrl>
-		<RepositoryType>git</RepositoryType>
-		<PackageTags>provider;agnostic;serialization;proxy;json;xml;yaml;binary;toml;cbor</PackageTags>
-		<PackageReleaseNotes>Initial release.</PackageReleaseNotes>
-		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<AssemblyVersion>$(PackageVersion)</AssemblyVersion>
-		<FileVersion>$(PackageVersion)</FileVersion>
-		<Description>A lightweight, provider agnostic, serialization proxy designed to simplify serialization definitions.</Description>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<GenerateDocumentationFile>True</GenerateDocumentationFile>
-		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-		<IncludeSymbols>True</IncludeSymbols>
-		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-	  <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-	  <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-	</PropertyGroup>
-
-	<ItemGroup>
-		<None Include="..\..\LICENSE">
-		  <Pack>True</Pack>
-		  <PackagePath>\</PackagePath>
-		</None>
-		<None Include="..\..\README.md">
-			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
-		</None>
-	</ItemGroup>
-
+    
+    <PropertyGroup>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    </PropertyGroup>
+    
 </Project>

@@ -13,10 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
- namespace Pasper;
 
- /// <summary>
- /// A simple marker interface for defining proxies of the <see cref="IgnoreAttribute"/> type.
- /// </summary>
- public interface IIgnoreAttribute;
+using System.Diagnostics.CodeAnalysis;
+
+namespace Pasper;
+
+/// <summary>
+/// A simple marker interface for defining proxies of the <see cref="IgnoreAttribute"/> type.
+/// </summary>
+[SuppressMessage("Design", "CA1040:Avoid empty interfaces", Justification = "This is a marker interface.")]
+[SuppressMessage("Naming", "CA1711:Identifiers should not have incorrect suffix",
+    Justification = "This is an interface representing an attribute.")]
+public interface IIgnoreAttribute;

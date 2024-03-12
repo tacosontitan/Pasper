@@ -1,13 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
     </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\Pasper.Toml\Pasper.Toml.csproj" />
+        <ProjectReference Include="..\..\src\Pasper\Pasper.csproj" />
+    </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="coverlet.collector" Version="6.0.0"/>
