@@ -4,6 +4,7 @@
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <NoWarn>CS1591</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>
