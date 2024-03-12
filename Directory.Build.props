@@ -1,5 +1,59 @@
 <Project>
-    <PropertyGroup>
-      <LangVersion>latest</LangVersion>
+
+    <PropertyGroup Label="General Project Details">
+        <TargetFrameworks>
+            net4.8;
+            net6.0;
+            net7.0;
+            net8.0;
+        </TargetFrameworks>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <ImplicitUsings>true</ImplicitUsings>
+        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+        
+        <Title>$(AssemblyName)</Title>
+        <Version>$(AssemblyVersion)</Version>
+        <FileVersion>$(AssemblyVersion)</FileVersion>
+        <PackageVersion>$(AssemblyVersion)</PackageVersion>
     </PropertyGroup>
-  </Project>
+
+    <PropertyGroup Label="Package Details">
+        <Description>A lightweight, provider agnostic, serialization proxy designed to simplify serialization definitions.</Description>
+        <PackageTags>provider;agnostic;serialization;proxy;json;xml;yaml;binary;toml;cbor</PackageTags>
+        
+        <Authors>tacosontitan</Authors>
+        <Copyright>Copyright © 2023 tacosontitan and contibutors</Copyright>
+        <PackageProjectUrl>https://github.com/tacosontitan/Pasper</PackageProjectUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageReleaseNotesFile>resources/docs/RELEASE_NOTES.md</PackageReleaseNotesFile>
+
+        <IncludeSymbols>True</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+        
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/tacosontitan/Pasper</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\..\LICENSE">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+            <Link>.resources\LICENSE</Link>
+        </None>
+        <None Include="..\..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+            <Link>.resources\docs\README.md</Link>
+        </None>
+        <None Include="..\..\resources\docs\RELEASE_NOTES.md">
+            <Pack>False</Pack>
+            <Link>.resources\docs\RELEASE_NOTES.md</Link>
+        </None>
+    </ItemGroup>
+
+</Project>

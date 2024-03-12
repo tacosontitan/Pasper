@@ -13,16 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
- namespace Pasper;
+
+using System.Diagnostics.CodeAnalysis;
+
+namespace Pasper;
 
 /// <summary>
 /// Defines how members are serialized.
 /// </summary>
+[SuppressMessage("Naming", "CA1711:Identifiers should not have incorrect suffix",
+    Justification = "This is an interface representing an attribute.")]
 public interface ISerializedAttribute
 {
     /// <summary>
     /// The name of the member when serialized.
     /// </summary>
-    string Name { get; set; }
+    string Name { get; }
 }
