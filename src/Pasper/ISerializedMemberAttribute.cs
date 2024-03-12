@@ -23,7 +23,7 @@ namespace Pasper;
 /// </summary>
 [SuppressMessage("Naming", "CA1711:Identifiers should not have incorrect suffix",
     Justification = "This is an interface representing an attribute.")]
-public interface ISerializedAttribute
+public interface ISerializedMemberAttribute
 {
     /// <summary>
     /// The name of the member when serialized.

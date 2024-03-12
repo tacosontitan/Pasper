@@ -21,9 +21,9 @@ namespace Pasper;
 /// </summary>
 /// <param name="name">The name of the member when serialized.</param>
 [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
-public sealed class SerializedAttribute(string name)
+public sealed class SerializedMemberAttribute(string name)
     : Attribute,
-      ISerializedAttribute
+      ISerializedMemberAttribute
 {
     /// <summary>
     /// Gets or sets the name of the member when serialized.
