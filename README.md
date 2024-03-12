@@ -39,12 +39,13 @@ The following is a list of features that are planned for the future:
 - [x] Create a common attribute for ignoring members.
 - [x] Create a common attribute for serializing members.
 - [ ] Create a way to transform member names based on the format.
-- [ ] Add support for JSON.
-- [ ] Add support for YAML.
 - [ ] Add support for XML.
   - [ ] Add support for XML elements.
   - [ ] Add support for XML attributes.
   - [ ] Add support for XML arrays.
+- [ ] Add support for JSON.
+- [ ] Add support for YAML.
+- [ ] Add support for TOML.
 
 Each format Pasper provides support for will be contained in its own assembly to allow consumers to only include the formats they need. The naming convention for these assemblies will be `Pasper.{Format}.{Provider}`, for example:
 
@@ -104,6 +105,5 @@ Ideally, we just take the input and use that as the desired output, regardless o
 
 The following is a list of features that are being considered for the future:
 
-- [ ] Add support for TOML.
 - [ ] Add support for INI.
 - [ ] Add support for HOCON.
