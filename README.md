@@ -105,6 +105,5 @@ Ideally, we just take the input and use that as the desired output, regardless o
 The following is a list of features that are being considered for the future:
 
 - [ ] Add support for TOML.
-- [ ] Add support for CBOR.
 - [ ] Add support for INI.
 - [ ] Add support for HOCON.
