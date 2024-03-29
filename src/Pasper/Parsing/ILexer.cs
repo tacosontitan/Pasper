@@ -4,7 +4,6 @@ namespace Pasper.Parsing;
 /// Represents a lexer for a serialization format.
 /// </summary>
 public interface ILexer
-    : IDisposable
 {
     /// <summary>
     /// Gets the token at the previous position of the lexer.
