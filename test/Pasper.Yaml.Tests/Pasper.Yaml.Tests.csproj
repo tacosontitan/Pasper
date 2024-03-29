@@ -4,6 +4,8 @@
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+        <GenerateDocumentationFile>False</GenerateDocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
