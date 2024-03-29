@@ -5,7 +5,7 @@ namespace Pasper.Json.Tokens;
 /// <summary>
 /// Represents a token containing a key.
 /// </summary>
-public sealed class KeyToken(string key)
+public sealed class PropertyName(string key)
     : IToken
 {
     /// <inheritdoc/>

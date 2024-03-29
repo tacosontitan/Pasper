@@ -5,7 +5,7 @@ namespace Pasper.Json.Tokens;
 /// <summary>
 /// Represents a token containing a value.
 /// </summary>
-public sealed class ValueToken(string value)
+public sealed class StringLiteral(string value)
     : IToken
 {
     /// <inheritdoc/>

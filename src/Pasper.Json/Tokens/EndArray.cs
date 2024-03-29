@@ -8,7 +8,7 @@ namespace Pasper.Json.Tokens;
 /// <remarks>
 ///     This token is represented by the character <c>]</c>.
 /// </remarks>
-public sealed class EndCollectionToken
+public sealed class EndArray
     : IToken
 {
     /// <inheritdoc/>
