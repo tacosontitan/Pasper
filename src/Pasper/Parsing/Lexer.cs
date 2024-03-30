@@ -41,9 +41,6 @@ public abstract class Lexer
     {
         if (_disposed)
             return;
-
-        if (!disposing)
-            return;
         
         _disposed = true;
     }
