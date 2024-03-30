@@ -57,6 +57,8 @@ public sealed class JsonLexer(string json)
             '}' => new EndObjectToken(),
             '[' => new BeginArrayToken(),
             ']' => new EndArrayToken(),
+            ':' => new EndNameToken(),
+            ',' => new EndValueToken(),
             _ => null
         };
 
@@ -65,6 +67,9 @@ public sealed class JsonLexer(string json)
             _currentIndex++;
             return true;
         }
+
+        if (TryGetStringToken(out token))
+            return true;
 
         throw new UnexpectedTokenException(_lineNumber, _columnNumber, currentCharacter.ToString());
     }
@@ -98,5 +103,28 @@ public sealed class JsonLexer(string json)
             _currentIndex++;
             _columnNumber = 0;
         }
+    }
+
+    private bool TryGetStringToken([NotNullWhen(true)] out IToken? token)
+    {
+        if (json[_currentIndex] != '"')
+        {
+            token = null;
+            return false;
+        }
+        
+        var startIndex = _currentIndex;
+        var endIndex = json.IndexOf('"', startIndex + 1);
+        if (endIndex == -1)
+            throw new UnexpectedTokenException(_lineNumber, _columnNumber, "EOF");
+        
+        var value = json.Substring(startIndex + 1, endIndex - startIndex - 1);
+        var isProperty = Previous is BeginObjectToken or EndValueToken;
+        token = isProperty
+            ? new PropertyNameToken(value)
+            : new LiteralStringToken(value);
+        
+        _currentIndex = endIndex + 1;
+        return true;
     }
 }
