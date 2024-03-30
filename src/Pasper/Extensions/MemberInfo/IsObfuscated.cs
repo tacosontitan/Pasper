@@ -1,7 +1,7 @@
 using System.Diagnostics.Contracts;
 using System.Reflection;
 
-namespace Pasper.Reflection;
+namespace Pasper.Extensions;
 
 /// <summary>
 /// Extension methods for <see cref="MemberInfo"/> instances.

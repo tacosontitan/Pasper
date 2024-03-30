@@ -1,10 +1,10 @@
 using System.Reflection;
-using Pasper.Reflection;
+using Pasper.Extensions;
 
 namespace Pasper.Tests.Reflection;
 
 /// <summary>
-/// Tests for the <see cref="Pasper.Reflection.MemberInfoExtensions.IsObfuscated"/> method.
+/// Tests for the <see cref="Pasper.Extensions.MemberInfoExtensions.IsObfuscated"/> method.
 /// </summary>
 public sealed class IsObfuscatedTests
 {
