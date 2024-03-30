@@ -43,7 +43,7 @@ public sealed class JsonLexer(string json)
 
     private bool TryGetNextToken([NotNullWhen(true)] out IToken? token)
     {
-        SkipWhitespace();
+        SkipIgnoredCharacters();
         if (_currentIndex >= json.Length)
         {
             token = null;
@@ -69,16 +69,23 @@ public sealed class JsonLexer(string json)
         throw new UnexpectedTokenException(_lineNumber, _columnNumber, currentCharacter.ToString());
     }
 
-    private void SkipWhitespace()
+    private void SkipIgnoredCharacters()
     {
         while (_currentIndex < json.Length)
         {
-            var currentChar = json[_currentIndex++];
+            var currentChar = json[_currentIndex];
+            if (currentChar is ':' or ',')
+            {
+                _currentIndex++;
+                continue;
+            }
+
             if (!char.IsWhiteSpace(currentChar))
                 break;
 
             if (currentChar != '\n' && currentChar != '\r')
             {
+                _currentIndex++;
                 _columnNumber++;
                 continue;
             }
@@ -88,6 +95,7 @@ public sealed class JsonLexer(string json)
                 _currentIndex++;
             
             _lineNumber++;
+            _currentIndex++;
             _columnNumber = 0;
         }
     }
