@@ -2,13 +2,13 @@ using Pasper.Json.Tokens;
 
 namespace Pasper.Json.Tests.Tokens;
 
-public class BeginObjectTests
+public class BeginObjectTokenTests
 {
     [Fact]
     public void Value_ShouldBeOpenBrace()
     {
         const string expected = "{";
-        var token = new BeginObject();
+        var token = new BeginObjectToken();
         Assert.Equal(expected, token.Value);
     }
 }

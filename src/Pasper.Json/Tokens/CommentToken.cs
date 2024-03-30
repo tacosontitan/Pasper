@@ -6,7 +6,7 @@ namespace Pasper.Json.Tokens;
 /// Represents a token containing a comment.
 /// </summary>
 /// <param name="value">The value of the comment.</param>
-public sealed class Comment(string value)
+public sealed class CommentToken(string value)
     : IToken
 {
     /// <summary>

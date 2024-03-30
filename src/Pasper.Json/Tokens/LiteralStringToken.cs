@@ -3,9 +3,9 @@ using Pasper.Parsing;
 namespace Pasper.Json.Tokens;
 
 /// <summary>
-/// Represents a token containing a number.
+/// Represents a token containing a value.
 /// </summary>
-public sealed class NumberLiteral(string value)
+public sealed class LiteralStringToken(string value)
     : IToken
 {
     /// <inheritdoc/>

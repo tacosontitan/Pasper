@@ -5,7 +5,7 @@ namespace Pasper.Json.Tokens;
 /// <summary>
 /// Represents a token that indicates the literal value <c>null</c>.
 /// </summary>
-public sealed class NullLiteral
+public sealed class LiteralNullToken
     : IToken
 {
     /// <inheritdoc/>

@@ -2,13 +2,13 @@ using Pasper.Json.Tokens;
 
 namespace Pasper.Json.Tests.Tokens;
 
-public class StringLiteralTests
+public class LiteralStringTokenTests
 {
     [Fact]
     public void Value_ShouldBeValue()
     {
         const string expected = "abc";
-        var token = new StringLiteral(expected);
+        var token = new LiteralStringToken(expected);
         Assert.Equal(expected, token.Value);
     }
 }

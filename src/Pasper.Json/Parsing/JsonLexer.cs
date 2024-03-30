@@ -53,10 +53,10 @@ public sealed class JsonLexer(string json)
         var currentCharacter = json[_currentIndex];
         token = currentCharacter switch
         {
-            '{' => new BeginObject(),
-            '}' => new EndObject(),
-            '[' => new BeginArray(),
-            ']' => new EndArray(),
+            '{' => new BeginObjectToken(),
+            '}' => new EndObjectToken(),
+            '[' => new BeginArrayToken(),
+            ']' => new EndArrayToken(),
             _ => null
         };
 
