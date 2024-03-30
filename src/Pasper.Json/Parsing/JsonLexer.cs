@@ -119,12 +119,12 @@ public sealed class JsonLexer(string json)
             throw new UnexpectedTokenException(_lineNumber, _columnNumber, "EOF");
         
         var value = json.Substring(startIndex + 1, endIndex - startIndex - 1);
-        var isProperty = Previous is BeginObjectToken or EndValueToken;
-        token = isProperty
-            ? new PropertyNameToken(value)
-            : Previous is EndNameToken
-                ? new LiteralStringToken(value)
-                : throw new UnexpectedTokenException(_lineNumber, _columnNumber, value);
+        token = Previous switch
+        {
+            EndNameToken => new LiteralStringToken(value),
+            BeginObjectToken or EndValueToken => new PropertyNameToken(value),
+            _ => throw new UnexpectedTokenException(_lineNumber, _columnNumber, value)
+        };
         
         _currentIndex = endIndex + 1;
         return true;
