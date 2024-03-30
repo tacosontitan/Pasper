@@ -68,7 +68,7 @@ public int Id { get; set; }
 Each provider does it a little bit differently, and each provider has its own set of attributes. This can lead to a lot of code duplication, and a lot of confusion when you're trying to figure out how to serialize a type. The idea behind Pasper is to simplify this:
 
 ```csharp
-[Serialized("id")]
+[SerializedMember(nameof(Id))]
 public int Id { get; set; }
 ```
 
