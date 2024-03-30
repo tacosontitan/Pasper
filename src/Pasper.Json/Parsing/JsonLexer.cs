@@ -122,7 +122,9 @@ public sealed class JsonLexer(string json)
         var isProperty = Previous is BeginObjectToken or EndValueToken;
         token = isProperty
             ? new PropertyNameToken(value)
-            : new LiteralStringToken(value);
+            : Previous is EndNameToken
+                ? new LiteralStringToken(value)
+                : throw new UnexpectedTokenException(_lineNumber, _columnNumber, value);
         
         _currentIndex = endIndex + 1;
         return true;
