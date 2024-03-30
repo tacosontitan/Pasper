@@ -1,5 +1,3 @@
-using System.Text;
-
 using Pasper.Json.Tokens;
 using Pasper.Parsing;
 
@@ -13,7 +11,9 @@ public sealed class JsonLexer(string json)
     : ILexer
 {
     private int _currentIndex;
-    
+    private int _lineNumber;
+    private int _columnNumber;
+
     /// <inheritdoc/>
     public IToken? Previous { get; private set; }
 
@@ -21,45 +21,13 @@ public sealed class JsonLexer(string json)
     public IToken? Current { get; private set; }
 
     /// <inheritdoc/>
-    public void Dispose()
-    {
-        // TODO release managed resources here
-    }
-
-    /// <inheritdoc/>
     public bool MoveNext()
     {
         if (_currentIndex >= json.Length)
             return false;
 
-        _priorToPrevious = Previous;
         Previous = Current;
-        
-        if (TryGetBeginCollection())
-            return true;
-        
-        if (TryGetBeginObject())
-            return true;
-
-        if (TryGetBeginString())
-            return true;
-        
-        if (TryGetKey())
-            return true;
-        
-        if (TryGetKeyValueSeparator())
-            return true;
-
-        if (TryGetEndString())
-            return true;
-        
-        if (TryGetObjectSeparator())
-            return true;
-
-        if (TryGetEndObject())
-            return true;
-
-        return TryGetEndCollection();
+        return TryGetNextToken();
     }
 
     /// <inheritdoc/>
@@ -69,58 +37,51 @@ public sealed class JsonLexer(string json)
         Previous = null;
         Current = null;
     }
-    
-    private bool TryGetBeginCollection()
-    {
-        if (json[_currentIndex] != '[')
-            return false;
 
-        Current = new BeginArray();
-        _currentIndex++;
-        return true;
-    }
-    
-    private bool TryGetBeginObject()
+    private bool TryGetNextToken()
     {
-        if (json[_currentIndex] != '{')
-            return false;
+        SkipWhitespace();
 
-        Current = new BeginObject();
-        _currentIndex++;
-        return true;
-    }
-    
-    private bool TryGetBeginString()
-    {
-        if (json[_currentIndex] != '"')
-            return false;
-
-        if (_priorToPrevious is BeginString)
-            return false;
-        
-        Current = new BeginString();
-        _currentIndex++;
-        return true;
-    }
-    
-    private bool TryGetKey()
-    {
-        if (json[_currentIndex] != '"')
-            return false;
-
-        if (_priorToPrevious is BeginString)
-            return false;
-        
-        var key = new StringBuilder();
-        _currentIndex++;
-        
-        while (json[_currentIndex] != '"')
+        var currentChar = json[_currentIndex];
+        IToken? currentToken = currentChar switch
         {
-            key.Append(json[_currentIndex]);
+            '{' => new BeginObject(),
+            '}' => new EndObject(),
+            '[' => new BeginArray(),
+            ']' => new EndArray(),
+            _ => null
+        };
+
+        if (currentToken is not null)
+        {
+            Current = currentToken;
             _currentIndex++;
+            return true;
         }
 
-        Current = new PropertyName(key.ToString());
-        return true;
+        throw new UnexpectedTokenException(_lineNumber, _columnNumber, currentChar.ToString());
+    }
+
+    private void SkipWhitespace()
+    {
+        while (_currentIndex < json.Length)
+        {
+            var currentChar = json[_currentIndex++];
+            if (!char.IsWhiteSpace(currentChar))
+                break;
+
+            if (currentChar != '\n' && currentChar != '\r')
+            {
+                _columnNumber++;
+                continue;
+            }
+            
+            char? nextChar = _currentIndex < json.Length ? json[_currentIndex] : null;
+            if (currentChar == '\r' && nextChar == '\n')
+                _currentIndex++;
+            
+            _lineNumber++;
+            _columnNumber = 0;
+        }
     }
 }
