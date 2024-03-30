@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 using Pasper.Json.Tokens;
 using Pasper.Parsing;
 
@@ -23,11 +25,12 @@ public sealed class JsonLexer(string json)
     /// <inheritdoc/>
     public bool MoveNext()
     {
-        if (_currentIndex >= json.Length)
+        if (!TryGetNextToken(out var currentToken))
             return false;
-
+        
         Previous = Current;
-        return TryGetNextToken();
+        Current = currentToken;
+        return true;
     }
 
     /// <inheritdoc/>
@@ -38,12 +41,17 @@ public sealed class JsonLexer(string json)
         Current = null;
     }
 
-    private bool TryGetNextToken()
+    private bool TryGetNextToken([NotNullWhen(true)] out IToken? token)
     {
         SkipWhitespace();
+        if (_currentIndex >= json.Length)
+        {
+            token = null;
+            return false;
+        }
 
-        var currentChar = json[_currentIndex];
-        IToken? currentToken = currentChar switch
+        var currentCharacter = json[_currentIndex];
+        token = currentCharacter switch
         {
             '{' => new BeginObject(),
             '}' => new EndObject(),
@@ -52,14 +60,13 @@ public sealed class JsonLexer(string json)
             _ => null
         };
 
-        if (currentToken is not null)
+        if (token is not null)
         {
-            Current = currentToken;
             _currentIndex++;
             return true;
         }
 
-        throw new UnexpectedTokenException(_lineNumber, _columnNumber, currentChar.ToString());
+        throw new UnexpectedTokenException(_lineNumber, _columnNumber, currentCharacter.ToString());
     }
 
     private void SkipWhitespace()
