@@ -44,4 +44,17 @@ public sealed partial class JsonLexerTests
         Assert.NotNull(lexer.Current);
         Assert.IsType<EndObjectToken>(lexer.Current);
     }
+
+    [Fact]
+    public void TryGetNextToken_CommentDetected_ReturnsTrue()
+    {
+        const string comment = "this is a comment";
+        const string testJson = $"// {comment}";
+        var lexer = new JsonLexer(testJson);
+        var tokenAvailable = lexer.MoveNext();
+        Assert.True(tokenAvailable);
+        Assert.NotNull(lexer.Current);
+        Assert.IsType<CommentToken>(lexer.Current);
+        Assert.Equal(comment, lexer.Current.Value);
+    }
 }
