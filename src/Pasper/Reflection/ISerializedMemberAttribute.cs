@@ -28,5 +28,5 @@ public interface ISerializedMemberAttribute
     /// <summary>
     /// The name of the member when serialized.
     /// </summary>
-    string Name { get; }
+    public string Name { get; }
 }
