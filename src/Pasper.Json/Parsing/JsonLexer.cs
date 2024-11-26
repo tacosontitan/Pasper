@@ -71,6 +71,9 @@ public sealed class JsonLexer(string json)
         if (TryGetStringToken(out token))
             return true;
 
+        if (TryGetSingleLineCommentToken(out token))
+            return true;
+
         throw new UnexpectedTokenException(_lineNumber, _columnNumber, currentCharacter.ToString());
     }
 
@@ -127,6 +130,36 @@ public sealed class JsonLexer(string json)
         };
         
         _currentIndex = endIndex + 1;
+        return true;
+    }
+
+    private bool TryGetSingleLineCommentToken([NotNullWhen(true)] out IToken? token)
+    {
+        if (json[_currentIndex] != '/')
+        {
+            token = null;
+            return false;
+        }
+        
+        var nextToken = json[_currentIndex + 1];
+        if (nextToken is not '/')
+        {
+            token = null;
+            return false;
+        }
+        
+        // Single line comments can technically be placed on the final line of the specified
+        // input. The lexer accounts for this by assuming that if no line breaks are detected
+        // after the start of a comment, that the comment goes to the end of the input.
+        var startIndex = _currentIndex + 2;
+        var endIndex = json.IndexOf('\n', startIndex);
+        if (endIndex == -1)
+            endIndex = json.Length;
+        
+        var value = json.Substring(startIndex, endIndex - startIndex);
+        token = new CommentToken(value.Trim());
+        _currentIndex = endIndex + 1;
+        _columnNumber += value.Length + 2;
         return true;
     }
 }
